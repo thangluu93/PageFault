@@ -2,7 +2,10 @@ function inputArray(input) {
     queue = [];
 
     for (let i = 0; i < input.length; i++) {
-        if (input[i] != ' ' && queue[i] != ',') {
+        if (input[i]='-1') {
+            break;
+        }
+        if (input[i] != ' ' && input[i] != ',') {
             queue.push(parseInt(input[i]));
         }
     }
@@ -18,7 +21,6 @@ function checkExsit(queueInput, frameSlot,  frame) {
         }
     }
     return null;
-
 }
 
 
