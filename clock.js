@@ -1,8 +1,7 @@
 function inputArray(input) {
     queue = [];
-
     for (let i = 0; i < input.length; i++) {
-        if (input[i]='-1') {
+        if (input[i]==='-1') {
             break;
         }
         if (input[i] != ' ' && input[i] != ',') {
@@ -10,17 +9,16 @@ function inputArray(input) {
         }
     }
     return queue;
-
 }
 
 function checkExsit(queueInput, frameSlot,  frame) {
     //check exsit
     for (let j = 0; j < frameSlot; j++) {
         if (frame[j] === queueInput) {
-            return j;
+            return j;  //duplicate
         }
     }
-    return null;
+    return null; //no duplicate
 }
 
 
@@ -29,7 +27,7 @@ function clock(queue, frameSlot) {
     let status = [];
     let frame = [];
     let statusIndex = 0;
-    let indexOfDuplicatate
+    let indexOfDuplicatate;
 
     //create status
     for (let i = 0; i < frameSlot; i++) {
@@ -39,7 +37,7 @@ function clock(queue, frameSlot) {
     for (let i = 0; i < queue.length; i++) {
         //check exsit
         indexOfDuplicatate = checkExsit(queue[i], frameSlot, frame);
-        if (indexOfDuplicatate === null) {
+        if (indexOfDuplicatate === null) {  //no duplicate
             if (status[statusIndex] === 0) {
                 frame[statusIndex] = queue[i];
                 statusIndex = ((statusIndex + 1) + frameSlot) % frameSlot;
@@ -53,8 +51,9 @@ function clock(queue, frameSlot) {
                 console.log(frame + '     ' + status + '      ' + statusIndex);
                 continue;
             }
-        }else{
-            frame[indexOfDuplicatate]=1;
+        }else{  //duplicate
+            status[indexOfDuplicatate]=1;
+            console.log(frame + '     ' + status + '      ' + statusIndex+ '    '+indexOfDuplicatate);
             continue;
 
         }
