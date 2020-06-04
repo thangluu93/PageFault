@@ -1,0 +1,51 @@
+function inputArray(input) {
+    queue = [];
+    for (let i = 0; i < input.length; i++) {
+        if (input[i]==='-1') {
+            break;
+        }
+        if (input[i] != ' ' && input[i] != ',') {
+            queue.push(parseInt(input[i]));
+        }
+    }
+    return queue;
+}
+
+function checkExsit(queueInput, frameSlot,  frame) {
+    //check exsit
+    for (let j = 0; j < frameSlot; j++) {
+        if (frame[j] === queueInput) {
+            return j;  //duplicate
+        }
+    }
+    return false; //no duplicate
+}
+
+
+
+function lru(queue, frameSlot) {
+    let frame=[];
+    let duplicateCount=0;
+   for (let i =0;i<queue.length;i++){
+       if (checkExsit(queue[i],frameSlot,frame)===false) {
+            indexReplace=checkExsit(queue[i-frameSlot-duplicateCount],frameSlot,frame);
+            frame[indexReplace]=queue[i];
+            duplicateCount=0;
+       }else{
+           duplicateCount++;
+       }
+       console.log(queue[i]+'  '+frame);
+   }
+}
+
+const main = () => {
+    let input = '7 0 1 2 0 3 0 4 2 3 0 3 2 1 2 0 1 7 0 1';
+    let queue;
+    let frameSlot = 3;
+     inputArray(input);
+    queue = inputArray(input);
+    lru(queue, frameSlot);
+
+}
+
+main();

@@ -17,26 +17,26 @@ function checkExsit(queue, frameSlot, frame) {
     for (let j = 0; j < frameSlot; j++) {
         if (queue === frame[j]) {
             return true;
-        }  
+        }
     };
     return false;
 }
 
 
- function  pageFault(frameSlot, queue) {
+function fifo(frameSlot, queue) {
 
     index = 0; //index of frame
     let frame = [];
 
     for (let i = 0; i < queue.length; i++) {
 
-         isExsit =  checkExsit(queue[i], frameSlot, frame);
+        isExsit = checkExsit(queue[i], frameSlot, frame);
         // console.log(isExsit);
         if (!isExsit) {
             frame[index] = queue[i];
             index = ((index + 1) + frameSlot) % frameSlot; //loop from,
         }
-       console.log(frame);
+        console.log(frame);
     }
 }
 
@@ -46,7 +46,7 @@ function main() {
     let frameSlot = 3;
     //Convert string input to array
     let queue = inputArray(input);
-    pageFault(frameSlot, queue);
+    fifo(frameSlot, queue);
 }
 
 

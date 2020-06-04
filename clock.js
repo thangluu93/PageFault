@@ -64,7 +64,7 @@ const main = () => {
     let input = '7 0 1 2 0 3 0 4 2 3 0 3 2 1 2 0 1 7 0 1';
     let queue;
     let frameSlot = 3;
-    inputArray(input);
+     inputArray(input);
     queue = inputArray(input);
     clock(queue, frameSlot);
 
