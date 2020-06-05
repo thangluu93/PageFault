@@ -1,7 +1,7 @@
 function inputArray(input) {
     queue = [];
     for (let i = 0; i < input.length; i++) {
-        if (input[i]==='-1') {
+        if (input[i] === '-1') {
             break;
         }
         if (input[i] != ' ' && input[i] != ',') {
@@ -11,7 +11,7 @@ function inputArray(input) {
     return queue;
 }
 
-function checkExsit(queueInput, frameSlot,  frame) {
+function checkExsit(queueInput, frameSlot, frame) {
     //check exsit
     for (let j = 0; j < frameSlot; j++) {
         if (frame[j] === queueInput) {
@@ -21,41 +21,60 @@ function checkExsit(queueInput, frameSlot,  frame) {
     return false; //no duplicate
 }
 
-function findDuplicateInFuture(queueInput,queue,i){
-    for( i+1;i<queue.length;i++){
-        if (queueInput===queue[i]) {
+function findDuplicateInFuture(queueInput, queue, i) {
+    i = i + 1
+    for (i; i < queue.length; i++) {
+        if (queueInput === queue[i]) {
             return i;
         }
     }
+    return null;
 }
 
 
 
 function optimal(queue, frameSlot) {
-   page=new Page();
-    let frame=[];
-    for (let i=0;i<queue.length;i++){
-        
-        page.number=queue[i];
-        page.index =findDuplicateInFuture(queue[i],queue,i);
-        console.log(page);
+
+    let frame = [];
+    let test = [];
+    for (let i = 0; i < queue.length; i++) {
+        index = findDuplicateInFuture(queue[i], queue, i);
+        page = new Page();
+        page.number = queue[i];
+        page.index = index;
+        indexOfExsit = checkExsit(queue[i], frameSlot, frame);
+        if (indexOfExsit != false) {
+            frame[indexOfExsit] = page;
+            console.log('indexOfExsit: ' + indexOfExsit);
+        } else {
+
+            let maxIndex = frame[0].index;
+            for (let j = 0; j < frameSlot - 1; j++) {
+                if (frame[j].index < frame[j + 1].index) {
+                    maxIndex = frame[j + 1].index;
+                }
+            }
+            frame[maxIndex]=page;
+        }
+        console.log(frame);
+
     }
 }
 
 class Page {
-   number;
-   index;
+    number;
+    index;
 
-    constructor(number,index){
-        number=this.number;
-        index=this.index;
+    constructor(number, index) {
+        number = this.number;
+        index = this.index;
     }
 }
 const main = () => {
     let input = '7 0 1 2 0 3 0 4 2 3 0 3 2 1 2 0 1 7 0 1';
     let queue;
     let frameSlot = 3;
-     inputArray(input);  
+    inputArray(input);
     queue = inputArray(input);
     optimal(queue, frameSlot);
 
