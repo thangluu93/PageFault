@@ -27,10 +27,10 @@ function lru(queue, frameSlot) {
     let frame=[];
     let duplicateCount=0;
    for (let i =0;i<queue.length;i++){
-       if (checkExsit(queue[i],frameSlot,frame)===false) {
-            indexReplace=checkExsit(queue[i-frameSlot-duplicateCount],frameSlot,frame);
-            frame[indexReplace]=queue[i];
-            duplicateCount=0;
+       if (checkExsit(queue[i],frameSlot,frame)===false) { // kiểm tra coi có số đó trong frame chưa nếu chưa thì mới chuyển trang
+            indexReplace=checkExsit(queue[i-frameSlot-duplicateCount],frameSlot,frame);  // tìm vị trí sec chuyển trang trong frame;
+            frame[indexReplace]=queue[i]; // thay số trong queue vào frame
+            duplicateCount=0;  //restart duplicate
        }else{
            duplicateCount++;
        }
