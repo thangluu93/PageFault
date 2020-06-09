@@ -1,5 +1,3 @@
-
-
 function inputArray(input) {
     queue = [];
 
