@@ -7,7 +7,11 @@ function getFrameSlot() {
 }
 
 function getTypeOfPageReplacement() {
-    return document.getElementById('typePage');
+    for(let i=0;i<document.getElementsByName('typePage').length;i++){
+        if(document.getElementsByName('typePage')[i].checked){
+            return document.getElementsByName('typePage')[i].value
+        }
+    };
 }
 
 function inputArray(input) {
@@ -27,15 +31,14 @@ function getInput() {
     let queueInput = inputArray(getQueueInput());
     let frameslot = parseInt(getFrameSlot());
     let type = getTypeOfPageReplacement();
-    console.log(type);
-    switch (this.type) {
+    switch (type) {
         case 'fifo':{
                 window.location.href = './fifo/fifo.html';
                 break;
             }
         case 'clock':{
             break;
-        }
+        }   
 
     }
 
