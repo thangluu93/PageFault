@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+First Name: <input type="number" id="myNumber" value=" ">
+
+<p>Click the button to run.</p>
+
+<button onclick="myFunction()">Run</button>
+
+<p id="demo"></p>
+
+<script>
+function myFunction() {
+  var x = document.getElementById("myNumber").value;
+  document.getElementById("demo").innerHTML = x;
+}
+</script>
+
+</body>
+</html>
