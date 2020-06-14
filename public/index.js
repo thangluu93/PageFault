@@ -37,8 +37,19 @@ function getInput() {
                 break;
             }
         case 'clock':{
+            window.location.href = './clock/clock.html';
             break;
-        }   
+        }
+        case 'lru':{
+            window.location.href = './lru/lru.html'
+            break;
+        }
+        case 'optimal':{
+            window.location.href = './optimal/optimal.html'
+            break;
+        }
+        
+        
 
     }
 
