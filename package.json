@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "description": "",
   "main": "clock.js",
+  "type": "module",
   "dependencies": {
     "animejs": "^3.2.0"
   },

@@ -1,0 +1,18 @@
+<form class="example-form">
+    <mat-form-field class="example-full-width">
+        <mat-label>Queue</mat-label>
+        <input matInput [(ngModel)]="queueInput" name="queueInput">
+    </mat-form-field>
+    <mat-form-field class="example-full-width">
+        <mat-label>FrameSlot </mat-label>
+        <input matInput [(ngModel)]="frameSlot" name="frameSlot">
+    </mat-form-field>
+</form>
+<label id="example-radio-group-label">Pick your algorithm</label>
+<mat-radio-group aria-labelledby="example-radio-group-label" class="example-radio-group" [(ngModel)]="type"
+    name="something">
+    <mat-radio-button class="example-radio-button" *ngFor="let type1 of pageFaultType" [value]="type1">
+        {{type1}}
+    </mat-radio-button>
+</mat-radio-group>
+<button mat-raised-button (click)="run()">RUN</button>
