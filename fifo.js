@@ -1,5 +1,5 @@
 function inputArray(input) {
-    queue = [];
+    let queue = [];
 
     for (let i = 0; i < input.length; i++) {
         if (input[i] != ' ' && queue[i] != ',') {
@@ -23,12 +23,12 @@ function checkExsit(queue, frameSlot, frame) {
 
 function fifo(frameSlot, queue) {
 
-    index = 0; //index of frame
+    let index = 0; //index of frame
     let frame = [];
 
     for (let i = 0; i < queue.length; i++) {
 
-        isExsit = checkExsit(queue[i], frameSlot, frame);
+        let isExsit = checkExsit(queue[i], frameSlot, frame);
         // console.log(isExsit);
         if (!isExsit) {
             frame[index] = queue[i];
@@ -41,6 +41,7 @@ function fifo(frameSlot, queue) {
 
 function main() {
     let input = '0 1 2 3 0 1 4 0 1 2 3 4';
+    console.log(input);
     let frameSlot = 3;
     //Convert string input to array
     let queue = inputArray(input);

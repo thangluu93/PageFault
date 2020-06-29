@@ -4,6 +4,8 @@
         <button class="pause"><i class="fa fa-pause-circle"></i></button>
     </div>
     <div class="box queue" *ngFor="let queue of data.queue" (click)="show()">{{queue}}</div>
-    <div class="box frame" *ngFor="let frame of frame" id="{{frame[i]}}"></div>
+    <div class="box frame" *ngFor="let frame of frame" ng-attr-id=""></div>
 </div>
 
+
+ <!-- <canvas #canvas width="600" height="300"></canvas> -->

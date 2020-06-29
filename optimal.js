@@ -1,5 +1,5 @@
 function inputArray(input) {
-    queue = [];
+    let queue = [];
     for (let i = 0; i < input.length; i++) {
         if (input[i] === '-1') {
             break;
@@ -22,7 +22,7 @@ function checkExsit(queueInput, frameSlot, frame) {
 }
 
 function findDuplicateInFuture(queueInput, queue, i) {
-    i = i + 1
+     i = i + 1
     for (i; i < queue.length; i++) {
         if (queueInput === queue[i]) {
             return i;
@@ -38,11 +38,11 @@ function optimal(queue, frameSlot) {
     let frame = [];
     let test = [];
     for (let i = 0; i < queue.length; i++) {
-        index = findDuplicateInFuture(queue[i], queue, i);
-        page = new Page();
+      let  index = findDuplicateInFuture(queue[i], queue, i);
+       let page = new Page();
         page.number = queue[i];
         page.index = index;
-        indexOfExsit = checkExsit(queue[i], frameSlot, frame);
+       let indexOfExsit = checkExsit(queue[i], frameSlot, frame);
         if (indexOfExsit != false) {
             frame[indexOfExsit] = page;
             console.log('indexOfExsit: ' + indexOfExsit);

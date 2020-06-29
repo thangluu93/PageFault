@@ -20,25 +20,15 @@ export class HomePageComponent implements OnInit {
   pageFaultType: string[] = ['FIFO', 'CLOCK', 'LRU', 'OPTIMAL'];
   type: String;
   frameSlot;
-  queue: number[] = []
 
-  inputArray(input) {
-    let queue = [];
 
-    for (let i = 0; i < input.length; i++) {
-      if (input[i] != ' ' && input[i] != ',') {
-        queue.push(parseInt(input[i]));
-      }
-    }
-    return queue;
 
-  }
 
   run() {
-    this.queue = this.inputArray(this.queueInput);
+  
     // console.log(this.queue);
 
-    this.dataService.addData(this.queue,this.frameSlot);
+    this.dataService.addData(this.queueInput,this.frameSlot);
     // switch (this.type) {
     //   case 'FIFO':{
     this.router.navigate(['fifo']);

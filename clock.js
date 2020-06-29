@@ -1,5 +1,5 @@
 function inputArray(input) {
-    queue = [];
+    let queue = [];
     for (let i = 0; i < input.length; i++) {
         if (input[i]==='-1') {
             break;
@@ -36,24 +36,24 @@ function clock(queue, frameSlot) {
 
     for (let i = 0; i < queue.length; i++) {
         //check exsit
-        indexOfDuplicatate = checkExsit(queue[i], frameSlot, frame);
+        let indexOfDuplicatate = checkExsit(queue[i], frameSlot, frame);
         if (indexOfDuplicatate === null) {  //no duplicate
             if (status[statusIndex] === 0) {
                 frame[statusIndex] = queue[i];
                 statusIndex = ((statusIndex + 1) + frameSlot) % frameSlot;
-                console.log(frame + '     ' + status + '      ' + statusIndex);
+                console.log(queue[i]+'\t'+frame + '\t' + status + '\t' + statusIndex+ '\t'+indexOfDuplicatate);
                 continue;
             } else {
                 status[statusIndex] = 0;
                 statusIndex = ((statusIndex + 1) + frameSlot) % frameSlot;
                 frame[statusIndex] = queue[i];
                 statusIndex = ((statusIndex + 1) + frameSlot) % frameSlot;
-                console.log(frame + '     ' + status + '      ' + statusIndex);
+                console.log(queue[i]+'\t'+frame + '\t' + status + '\t' + statusIndex+ '\t'+indexOfDuplicatate);
                 continue;
             }
         }else{  //duplicate
             status[indexOfDuplicatate]=1;
-            console.log(frame + '     ' + status + '      ' + statusIndex+ '    '+indexOfDuplicatate);
+            console.log(queue[i]+'\t'+frame + '\t' + status + '\t' + statusIndex+ '\t'+indexOfDuplicatate);
             continue;
 
         }
