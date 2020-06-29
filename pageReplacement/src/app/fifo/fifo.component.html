@@ -3,9 +3,14 @@
         <button class="play" (click)="play()"><i class="fa fa-play-circle"></i></button>
         <button class="pause"><i class="fa fa-pause-circle"></i></button>
     </div>
-    <div class="box queue" *ngFor="let queue of data.queue" (click)="show()">{{queue}}</div>
+    <!-- <div class="box queue" *ngFor="let queue of data.queue" >{{queue}}</div> -->
+    <table>
+        <tr>
+            <td *ngFor="let queue of data.queue">{{queue}}</td>
+        </tr>
+    </table>
     <div class="box frame" *ngFor="let frame of frame" ng-attr-id=""></div>
 </div>
 
 
- <!-- <canvas #canvas width="600" height="300"></canvas> -->
+<!-- <canvas #canvas width="600" height="300"></canvas> -->

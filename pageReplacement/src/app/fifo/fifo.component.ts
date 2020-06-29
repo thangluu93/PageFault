@@ -20,21 +20,14 @@ export class FifoComponent implements OnInit {
 
   ngOnInit(): void {
     this.data = this.dataService.getData();
-
     this.createFrame();
   }
 
   createFrame() {
     for (let i = 0; i < this.data.frameSlot; i++) {
-      this.frame[i]=null;
+      this.frame[i] = null;
     }
     console.log(this.frame);
-    
-  }
-
-  show() {
-    let y = document.querySelector('div').offsetTop;
-    console.log(y)
   }
 
   play() {
@@ -66,13 +59,8 @@ export class FifoComponent implements OnInit {
 
 
   fifo() {
-
     let index = 0; //index of frame
-
-
-
     for (let i = 0; i < this.data.queue.length; i++) {
-
       let isExsit = this.checkExsit(this.data.queue[i], this.data.frameSlot, this.frame);
       // console.log(isExsit);
       if (!isExsit) {

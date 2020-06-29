@@ -1,7 +1,7 @@
 function inputArray(input) {
     let queue = [];
     for (let i = 0; i < input.length; i++) {
-        if (input[i]==='-1') {
+        if (input[i] === '-1') {
             break;
         }
         if (input[i] != ' ' && input[i] != ',') {
@@ -11,7 +11,7 @@ function inputArray(input) {
     return queue;
 }
 
-function checkExsit(queueInput, frameSlot,  frame) {
+function checkExsit(queueInput, frameSlot, frame) {
     //check exsit
     for (let j = 0; j < frameSlot; j++) {
         if (frame[j] === queueInput) {
@@ -41,19 +41,19 @@ function clock(queue, frameSlot) {
             if (status[statusIndex] === 0) {
                 frame[statusIndex] = queue[i];
                 statusIndex = ((statusIndex + 1) + frameSlot) % frameSlot;
-                console.log(queue[i]+'\t'+frame + '\t' + status + '\t' + statusIndex+ '\t'+indexOfDuplicatate);
+                console.log(queue[i] + '\t' + frame + '\t' + status + '\t' + statusIndex + '\t' + indexOfDuplicatate);
                 continue;
             } else {
                 status[statusIndex] = 0;
                 statusIndex = ((statusIndex + 1) + frameSlot) % frameSlot;
                 frame[statusIndex] = queue[i];
                 statusIndex = ((statusIndex + 1) + frameSlot) % frameSlot;
-                console.log(queue[i]+'\t'+frame + '\t' + status + '\t' + statusIndex+ '\t'+indexOfDuplicatate);
+                console.log(queue[i] + '\t' + frame + '\t' + status + '\t' + statusIndex + '\t' + indexOfDuplicatate);
                 continue;
             }
-        }else{  //duplicate
-            status[indexOfDuplicatate]=1;
-            console.log(queue[i]+'\t'+frame + '\t' + status + '\t' + statusIndex+ '\t'+indexOfDuplicatate);
+        } else {  //duplicate
+            status[indexOfDuplicatate] = 1;
+            console.log(queue[i] + '\t' + frame + '\t' + status + '\t' + statusIndex + '\t' + indexOfDuplicatate);
             continue;
 
         }
@@ -64,7 +64,7 @@ const main = () => {
     let input = '7 0 1 2 0 3 0 4 2 3 0 3 2 1 2 0 1 7 0 1';
     let queue;
     let frameSlot = 3;
-     inputArray(input);
+    inputArray(input);
     queue = inputArray(input);
     clock(queue, frameSlot);
 

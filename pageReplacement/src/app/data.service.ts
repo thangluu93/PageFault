@@ -15,22 +15,13 @@ export class DataService {
   }
 
   inputArray(input) {
-    let queue =[];
-
+    let queue = [];
     for (let i = 0; i < input.length; i++) {
       if (input[i] != ' ' && input[i] != ',') {
-        queue.push(
-          {
-            'queue': parseInt(input[i]),
-            'id': i
-          }
-        );
+        queue.push(parseInt(input[i]));
       }
     }
-
-
     return queue;
-
   }
 
   addData(queue, frame) {
@@ -40,7 +31,6 @@ export class DataService {
   }
 
   getData() {
-
     return this.data;
   }
 

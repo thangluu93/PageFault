@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormControl } from '@angular/forms';
 import { Router } from '@angular/router';
 import { DataService } from '../data.service';
-import { queue } from 'rxjs/internal/scheduler/queue';
+
 
 @Component({
   selector: 'app-home-page',
@@ -21,21 +21,31 @@ export class HomePageComponent implements OnInit {
   type: String;
   frameSlot;
 
-
-
-
   run() {
-  
+
     // console.log(this.queue);
 
-    this.dataService.addData(this.queueInput,this.frameSlot);
-    // switch (this.type) {
-    //   case 'FIFO':{
-    this.router.navigate(['fifo']);
-    //   }
 
-    //   // default:
-    //   //   this.router.navigate(['fifo']);
-    // }
+    switch (this.type) {
+      case 'FIFO': {
+        this.dataService.addData(this.queueInput, this.frameSlot);
+        this.router.navigate(['fifo']);
+        break
+      };
+      case 'LRU': {
+        this.router.navigate(['lru']);
+        break
+      };
+      case 'CLOCK': {
+        this.router.navigate(["clock"]);
+        break;
+      };
+      case 'OPTIMAL': {
+        this.router.navigate(["optimal"]);
+        break;
+      };
+      // default:
+      //   this.router.navigate(['fifo']);
+    }
   }
 }
