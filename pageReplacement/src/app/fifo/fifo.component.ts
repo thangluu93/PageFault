@@ -16,18 +16,22 @@ export class FifoComponent implements OnInit {
   ) { }
   data;
   frame = [];
+  steps = [];
 
 
   ngOnInit(): void {
     this.data = this.dataService.getData();
     this.createFrame();
+    // console.log(this.data);
+
+
   }
 
   createFrame() {
     for (let i = 0; i < this.data.frameSlot; i++) {
       this.frame[i] = null;
     }
-    console.log(this.frame);
+    // console.log(this.frame);
   }
 
   play() {
@@ -50,7 +54,9 @@ export class FifoComponent implements OnInit {
   checkExsit(queue, frameSlot, frame) {
     //check exist in frame
     for (let j = 0; j < frameSlot; j++) {
-      if (queue === frame[j]) {
+      // console.log(queue+"\t"+frame[j]);
+
+      if (queue === parseInt(frame[j])) {
         return true;
       }
     };
@@ -58,14 +64,17 @@ export class FifoComponent implements OnInit {
   }
 
 
-  fifo() {
+ async fifo() {
     let index = 0; //index of frame
     for (let i = 0; i < this.data.queue.length; i++) {
       let isExsit = this.checkExsit(this.data.queue[i], this.data.frameSlot, this.frame);
       // console.log(isExsit);
       if (!isExsit) {
         this.frame[index] = this.data.queue[i];
+        console.log(index);
         index = ((index + 1) + this.data.frameSlot) % this.data.frameSlot; //loop from,
+        console.log(this.frame);
+        
       }
     }
   }

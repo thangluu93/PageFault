@@ -41,19 +41,19 @@ function clock(queue, frameSlot) {
             if (status[statusIndex] === 0) {
                 frame[statusIndex] = queue[i];
                 statusIndex = ((statusIndex + 1) + frameSlot) % frameSlot;
-                console.log(queue[i] + '\t' + frame + '\t' + status + '\t' + statusIndex + '\t' + indexOfDuplicatate);
+                console.log(queue[i] + '\t' + frame + '\t' + status + '\t' + statusIndex );
                 continue;
             } else {
                 status[statusIndex] = 0;
                 statusIndex = ((statusIndex + 1) + frameSlot) % frameSlot;
                 frame[statusIndex] = queue[i];
                 statusIndex = ((statusIndex + 1) + frameSlot) % frameSlot;
-                console.log(queue[i] + '\t' + frame + '\t' + status + '\t' + statusIndex + '\t' + indexOfDuplicatate);
+                console.log(queue[i] + '\t' + frame + '\t' + status + '\t' + statusIndex );
                 continue;
             }
         } else {  //duplicate
             status[indexOfDuplicatate] = 1;
-            console.log(queue[i] + '\t' + frame + '\t' + status + '\t' + statusIndex + '\t' + indexOfDuplicatate);
+            console.log(queue[i] + '\t' + frame + '\t' + status + '\t' + statusIndex );
             continue;
 
         }
@@ -66,8 +66,10 @@ const main = () => {
     let frameSlot = 3;
     inputArray(input);
     queue = inputArray(input);
+    console.log("INPUT: "+input);
+    console.log('queue\tframe\tstatus\tstatus');
+    
     clock(queue, frameSlot);
-
 }
 
 main();

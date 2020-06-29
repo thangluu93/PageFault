@@ -1,57 +1,19 @@
-// #boxes {
-//   width: 80%;
-//   margin: auto;
-//   text-align: center;
-// }
+.queue-container{
+  display: flex;
+  flex-direction: row;
+  text-align: center;
+  justify-content: space-around;
+}
 
-// #btns {
-//   padding: 20px;
-//   background: #f4f4f4;
-//   margin-bottom: 20px;
-// }
-
-// #btns button {
-//   background: #fff;
-//   padding: 5px 10px;
-//   border: 0;
-// }
-
-// #btns .fa {
-//   font-size: 30px;
-// }
-
-// #btns .fa-play-circle {
-//   color: green;
-// }
-
-// #btns .fa-pause-circle {
-//   color: red;
-// }
-
-// .box {
-//   position: relative;
-//   width: 100px;
-//   height: 100px;
-//   margin: 4px;
-//   display: inline-block;
-// }
-
-// // .red{background-color:red}
-// .frame {
-//   background-color: blue
-// }
-
-// .queue {
-//   background-color: green
-// }
-
-// // .yellow{background-color:yellow}
-
-table,
-th,
-td {
-  border: 2px solid black;
-  border-collapse: collapse;
-  width: 20vw !important;
-  height: 10vh !important;
+.frame-contanier{
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  justify-content: space-around;
+}
+.frame-contanier{
+  display: flex;
+  flex-direction: row;
+  text-align: center;
+  justify-content: space-around;
 }

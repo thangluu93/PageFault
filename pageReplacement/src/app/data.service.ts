@@ -27,7 +27,7 @@ export class DataService {
   addData(queue, frame) {
     this.data.queue = this.inputArray(queue);
     this.data.frameSlot = frame;
-    console.log(this.data);
+    // console.log(this.data);
   }
 
   getData() {

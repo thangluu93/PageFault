@@ -1,16 +1,26 @@
 <div id="boxes">
-    <div id="btns">
-        <button class="play" (click)="play()"><i class="fa fa-play-circle"></i></button>
-        <button class="pause"><i class="fa fa-pause-circle"></i></button>
-    </div>
+
     <!-- <div class="box queue" *ngFor="let queue of data.queue" >{{queue}}</div> -->
-    <table>
+    <!-- <table>
         <tr>
             <td *ngFor="let queue of data.queue">{{queue}}</td>
         </tr>
+        <tr *ngFor="let frame of frame"></tr>
     </table>
-    <div class="box frame" *ngFor="let frame of frame" ng-attr-id=""></div>
+    <div class="box frame" *ngFor="let frame of frame" ng-attr-id=""></div> -->
+    <div class="simulator-container">
+        <div class="queue-container">
+            <div class="queue" *ngFor="let queue of data.queue">{{queue}}</div>
+        </div>
+        <div class="step-container">
+            <div class="frame-contaner" *ngFor="let step of steps">
+                <div class="frame" *ngFor="let frame of frame">{{frame}}</div>
+            </div>
+        </div>
+    </div>
 </div>
+<button (click)="fifo()">RUN</button>
+
 
 
 <!-- <canvas #canvas width="600" height="300"></canvas> -->

@@ -10,19 +10,19 @@ function getInput() {
     let type = getTypeOfPageReplacement();
     switch (type) {
         case 'fifo': {
-            window.location.href = './fifo/fifo.html';
+            window.location.href = './fifo.html';
             break;
         }
         case 'clock': {
-            window.location.href = './clock/clock.html';
+            window.location.href = './clock.html';
             break;
         }
         case 'lru': {
-            window.location.href = './lru/lru.html'
+            window.location.href = './lru.html'
             break;
         }
         case 'optimal': {
-            window.location.href = './optimal/optimal.html'
+            window.location.href = '.optimal.html'
             break;
         }
     }
