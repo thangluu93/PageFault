@@ -105,7 +105,7 @@ function domStep(queue, frameSlot, frame, status, index) {
     };
 
     let statusCell = document.createElement("td");
-    statusCell.style.background = "rgb(0,255,0)"
+    statusCell.style.background = "rgb(50,50,50)"
     let statusText = document.createTextNode(status);
     statusCell.appendChild(statusText);
     row.appendChild(statusCell)
@@ -122,7 +122,7 @@ function domStatus(status, statusIndex, frameSlot) {
         let cellStatus = document.createElement("td");
         let statusText = document.createTextNode(status[j]);
         if (j === statusIndex ) {
-            cellStatus.style.background = "rgb(0,0,255)"
+            cellStatus.style.background = "rgba(50,50,50,0.5)"
         }
         cellStatus.appendChild(statusText);
         row.appendChild(cellStatus);

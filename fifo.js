@@ -28,12 +28,12 @@ function fifo(frameSlot, queue) {
     console.log("page\tframe");
 
     for (let i = 0; i < queue.length; i++) {
-        let status = 'miss'
+        let status='' ;
         let isExsit = checkExsit(queue[i], frameSlot, frame);
         // console.log(isExsit);
         if (!isExsit) {
             frame[index] = queue[i];
-            status = 'hit';
+            status = 'f';
             domStep(queue[i], frameSlot, frame, status, index);
             index = ((index + 1) + frameSlot) % frameSlot; //loop from,
             continue;
@@ -61,21 +61,21 @@ function domStep(queue, frameSlot, frame, status, index) {
     let tblBody = document.createElement("tbody");
     let row = document.createElement("tr");
     let queueCell = document.createElement("td");
-    queueCell.style.background = "rgb(255,0,0)"
+    queueCell.style.background = "rgb(255,50,50)"
     let queueText = document.createTextNode(queue);
     queueCell.appendChild(queueText);
     row.appendChild(queueCell);
     for (var j = 0; j < frameSlot; j++) {
         let cellFrame = document.createElement("td");
         let frameText = document.createTextNode(frame[j]);
-        if (j === index && status === "hit") {
-            cellFrame.style.background = "rgb(0,0,255)"
+        if (j === index && status === "f") {
+            cellFrame.style.background = "rgba(50,50,50,0.5)"
         }
         cellFrame.appendChild(frameText);
         row.appendChild(cellFrame);
     }
     let statusCell = document.createElement("td");
-    statusCell.style.background = "rgb(0,255,0)"
+    statusCell.style.background = "rgb(0,255,0)";
     let statusText = document.createTextNode(status);
     statusCell.appendChild(statusText);
     row.appendChild(statusCell)
